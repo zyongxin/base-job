@@ -31,8 +31,8 @@
  
 		
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://192.168.9.178:44417/bhs_shop_pro"
-			userId="root" password="zhiyeDEV654321">
+			connectionURL="jdbc:mysql://localhost:3306/bhs_shop_pro"
+			userId="root" password="root">
 		</jdbcConnection>
 
 		<javaModelGenerator
