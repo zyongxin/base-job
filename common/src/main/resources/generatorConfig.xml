@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="Mysql"><!-- targetRuntime="MyBatis3Simple" defaultModelType="flat" -->
+		 <!--  <plugin type="tk.mybatis.mapper.generator.MapperPlugin">  
+			<property name="mappers"
+				value="tk.mybatis.mapper.common.Mapper" /> 
+			<property name="caseSensitive" value="true" />
+		</plugin>   -->
+		<!-- //是否区分大小写
+		//继承 -->
+		
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
+		
+		<plugin
+			type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin"></plugin>
+		<!-- 想要mybaits代码生成器生成Example类换个名字，是通过插件实现的，即下面的这个插件配置参数很关键。 -->
+		
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+		
+		 <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+ 
+		
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.9.178:44417/bhs_shop_pro"
+			userId="root" password="zhiyeDEV654321">
+		</jdbcConnection>
+
+		<javaModelGenerator
+			targetPackage="com.zy.bathroom.entity"
+			targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+			<propertyame="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator
+			targetPackage="com.zy.bathroom.mapper"
+			targetProject="src\main\java">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<javaClientGenerator
+			targetPackage="com.zy.bathroom.mapper"
+			targetProject="src\main\java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+
+		<table tableName="shop_promoter_gif_goods" domainObjectName="shopPromoterGifGoods"></table>
+		
+	 
+		
+	</context>
+</generatorConfiguration>
